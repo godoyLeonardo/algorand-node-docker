@@ -61,6 +61,7 @@ When the node has finished synchronizing, inside our container, we can obtain th
 cat data/algod.token
 ```
 The IP to use it is __0.0.0.0:4001__
+
 The last section of the IP is the port, which was configured in the Dockerfile, and at the time of running our container with "Docker run".
 
 We can access a basic response with an application such as Postman by making a GET request to the following address:
