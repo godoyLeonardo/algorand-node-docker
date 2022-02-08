@@ -10,11 +10,13 @@ This simple Dockerfile is intended to run an Algorand node in a local environmen
 ## Installation
 
 Copy the contents of this GIT repository manually to your device, or using the following command
+
 example: git clone git@github.com:vipeeerr/algorand-node-docker.git my-algorand-node
 ```sh
 git clone git@github.com:vipeeerr/algorand-node-docker.git [destination-folder]
 ```
 Go to the folder where you downloaded the content
+
 example: cd algorand/my-algorand-node
 ```sh
 cd [destination-folder]
@@ -43,7 +45,8 @@ docker exec -it [container-id] /bin/bash
 In our computers, we go to this [Algorand URL](https://algorand-catchpoints.s3.us-east-2.amazonaws.com/channel/mainnet/latest.catchpoint) and copy the content that it will give us
 
 Today, January 08, the result returned is: "19120000#QI3FLJXOZ376PJQRG7VAZPUEH6EGOSUA23Q3KBHLPKYHABZEL5WA"
-And then, back in our docker container console we do:
+
+Then, back in our docker container console we do:
 ```sh
 goal node catchup 19120000#QI3FLJXOZ376PJQRG7VAZPUEH6EGOSUA23Q3KBHLPKYHABZEL5WA
 ```
@@ -66,7 +69,7 @@ http://0.0.0.0:4001/swagger.json
 ```
 Finally, if we want to use the node to consume one of the many available Algorand SDKs, we can follow this example in Python with our IP and port, plus our token obtained with "cat data/algod.token".
 ```PYTHON
-    algod_address = "http://localhost:4001"
+    algod_address = "http://localhost:4001" #node ip
     algod_token = "a12d99fcadfs9372z1ax1924xc5130b3e6nvcd3d429c2ffdfvbvc01h6f" #node token
     headers = {
         "X-API-Key": algod_token,
@@ -74,6 +77,7 @@ Finally, if we want to use the node to consume one of the many available Algoran
     algod_client = algod.AlgodClient(algod_token, algod_address, headers)
 ```
 __With all this commented, the node should be enabled to be used by API or with the Algorand SDKs.__
+
 It is important to note that if you shut down the computer, or close the Docker container, the node will lose its synchronization and it will take a few minutes, hours or days to get it back in sync. If too much time has passed, you can always re-run "goal node catchup" with the information received from the Algorand URL to update the node faster.
 
 
