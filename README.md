@@ -7,6 +7,20 @@ This simple Dockerfile is intended to run an Algorand node in a local environmen
 - Internet connectivity
 - Docker ready to be used on your computer/mac
 
+## Check this if you have already installed the node and you need to update it
+
+In a docker console, enter the following commands to update the node
+
+```sh
+wget https://raw.githubusercontent.com/algorand/go-algorand-doc/master/downloads/installers/update.sh
+```
+```sh
+chmod 544 update.sh
+```
+```sh
+./update.sh -i -c stable -p ~/node -d ~/node/data -n
+```
+
 ## Installation
 
 Copy the contents of this GIT repository manually to your device, or using the following command
